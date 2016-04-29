@@ -23,8 +23,8 @@ class MemeEditorViewController: UIViewController,
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var middleView: UIView!
-    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
     
     var imagePicker: UIImagePickerController!
     
@@ -75,7 +75,7 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        var memedImage = generateMemedImage()
+        let memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         presentViewController(activityVC, animated: true, completion: nil)
     }
@@ -85,7 +85,7 @@ class MemeEditorViewController: UIViewController,
     {
         // Hide toolbar and navbar
         navigationBar.hidden = true
-        bottomView.hidden = true
+        toolBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -97,7 +97,7 @@ class MemeEditorViewController: UIViewController,
         
         // Show toolbar and navbar
         navigationBar.hidden = false
-        bottomView.hidden = false
+        toolBar.hidden = false
         
         return memedImage
     }

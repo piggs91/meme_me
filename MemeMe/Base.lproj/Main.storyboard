@@ -94,78 +94,68 @@
                                     <constraint firstAttribute="bottom" secondItem="xU9-as-AFy" secondAttribute="bottom" id="xOH-3K-9YT"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZ8-e8-TMe" userLabel="bottomView">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDE-fh-w6p">
                                 <rect key="frame" x="0.0" y="560" width="600" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3s-NF-02y" userLabel="dummyLabel">
-                                        <rect key="frame" x="290" y="10" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="sbr-lS-US5"/>
-                                            <constraint firstAttribute="height" constant="20" id="zIc-KS-MlC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-Pj-Hcf" userLabel="cameraButton">
-                                        <rect key="frame" x="206" y="5" width="54" height="30"/>
-                                        <state key="normal" title="Camera"/>
-                                        <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aJF-dd-nXd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-d7-zMF" userLabel="albumButton">
-                                        <rect key="frame" x="320" y="5" width="44" height="30"/>
-                                        <state key="normal" title="Album"/>
-                                        <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zes-vp-yvi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="kEt-d7-zMF" firstAttribute="leading" secondItem="V3s-NF-02y" secondAttribute="leading" constant="30" id="Crv-hc-yOS"/>
-                                    <constraint firstItem="Gqd-Pj-Hcf" firstAttribute="trailing" secondItem="V3s-NF-02y" secondAttribute="leading" constant="-30" id="GS3-pb-KFR"/>
-                                    <constraint firstItem="V3s-NF-02y" firstAttribute="centerY" secondItem="VZ8-e8-TMe" secondAttribute="centerY" id="bcn-JC-D3Z"/>
-                                    <constraint firstItem="Gqd-Pj-Hcf" firstAttribute="centerY" secondItem="VZ8-e8-TMe" secondAttribute="centerY" id="cFJ-57-hNS"/>
-                                    <constraint firstItem="V3s-NF-02y" firstAttribute="centerX" secondItem="VZ8-e8-TMe" secondAttribute="centerX" id="h6M-1i-3Q8"/>
-                                    <constraint firstItem="kEt-d7-zMF" firstAttribute="centerY" secondItem="VZ8-e8-TMe" secondAttribute="centerY" id="oJt-nd-jFF"/>
-                                    <constraint firstAttribute="height" constant="40" id="v1G-9U-uTq"/>
+                                    <constraint firstAttribute="height" constant="40" id="mM7-Om-MRK"/>
                                 </constraints>
-                            </view>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="p5E-aZ-3l5"/>
+                                    <barButtonItem style="plain" id="OKW-tq-a95">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gqd-Pj-Hcf" userLabel="cameraButton">
+                                            <rect key="frame" x="226" y="5" width="54" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Camera"/>
+                                            <connections>
+                                                <action selector="pickAnImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aJF-dd-nXd"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="40" style="plain" systemItem="fixedSpace" id="LsL-xh-e79"/>
+                                    <barButtonItem style="plain" id="WLy-e3-FUd">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kEt-d7-zMF" userLabel="albumButton">
+                                            <rect key="frame" x="330" y="5" width="44" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Album"/>
+                                            <connections>
+                                                <action selector="pickAnImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zes-vp-yvi"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AXD-DZ-VMC"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VZ8-e8-TMe" firstAttribute="top" secondItem="F4b-FE-YeH" secondAttribute="bottom" id="7B0-br-OtP"/>
-                            <constraint firstItem="F4b-FE-YeH" firstAttribute="bottom" secondItem="VZ8-e8-TMe" secondAttribute="top" id="7H4-jO-Ubl"/>
+                            <constraint firstItem="xDE-fh-w6p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="51p-K1-845"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xDE-fh-w6p" secondAttribute="bottom" id="FuJ-uE-WHl"/>
                             <constraint firstItem="5jE-MJ-Jas" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GF4-AP-eWg"/>
-                            <constraint firstItem="F4b-FE-YeH" firstAttribute="bottom" secondItem="VZ8-e8-TMe" secondAttribute="top" id="LYj-Mw-eew"/>
+                            <constraint firstAttribute="trailing" secondItem="xDE-fh-w6p" secondAttribute="trailing" id="Gjk-gF-UAf"/>
                             <constraint firstItem="5jE-MJ-Jas" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Maq-OQ-SRK"/>
                             <constraint firstAttribute="trailing" secondItem="F4b-FE-YeH" secondAttribute="trailing" id="Mo5-Rc-qVL"/>
-                            <constraint firstItem="VZ8-e8-TMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QRt-ON-jxt"/>
                             <constraint firstItem="F4b-FE-YeH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UB7-Nz-RVQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VZ8-e8-TMe" secondAttribute="bottom" id="YdB-jl-ggy"/>
                             <constraint firstItem="F4b-FE-YeH" firstAttribute="top" secondItem="5jE-MJ-Jas" secondAttribute="bottom" id="iDd-LY-tgJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xDE-fh-w6p" secondAttribute="bottom" id="lhz-ZZ-UnT"/>
                             <constraint firstAttribute="trailing" secondItem="5jE-MJ-Jas" secondAttribute="trailing" id="msE-xl-2sm"/>
-                            <constraint firstAttribute="trailing" secondItem="VZ8-e8-TMe" secondAttribute="trailing" id="qDl-ld-cSs"/>
+                            <constraint firstItem="F4b-FE-YeH" firstAttribute="bottom" secondItem="xDE-fh-w6p" secondAttribute="top" id="w6U-01-FSH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="7H4-jO-Ubl"/>
-                                <exclude reference="7B0-br-OtP"/>
+                                <exclude reference="FuJ-uE-WHl"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="kEt-d7-zMF" id="NDF-JV-t8Y"/>
                         <outlet property="bottomText" destination="o23-DI-Foz" id="ADn-q9-XkB"/>
-                        <outlet property="bottomView" destination="VZ8-e8-TMe" id="nZa-Yo-7Iy"/>
                         <outlet property="cameraButton" destination="Gqd-Pj-Hcf" id="lmm-cd-A7m"/>
                         <outlet property="cancelButton" destination="Fnt-Xk-796" id="iYW-pC-eK5"/>
                         <outlet property="imageView" destination="xU9-as-AFy" id="8iL-mM-aDk"/>
                         <outlet property="middleView" destination="F4b-FE-YeH" id="vgH-UW-Rfb"/>
                         <outlet property="navigationBar" destination="5jE-MJ-Jas" id="Acn-7e-nwg"/>
                         <outlet property="shareButton" destination="FX6-KQ-yQq" id="NjV-62-Tet"/>
+                        <outlet property="toolBar" destination="xDE-fh-w6p" id="iHv-vU-lj4"/>
                         <outlet property="topText" destination="ZuS-FI-hmG" id="wFQ-ee-jyO"/>
                     </connections>
                 </viewController>
