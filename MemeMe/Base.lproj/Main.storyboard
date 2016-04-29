@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Meme Editor View Controller-->
@@ -18,33 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQG-iC-rNG" userLabel="topView">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jE-MJ-Jas">
                                 <rect key="frame" x="0.0" y="20" width="600" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-BF-nwU" userLabel="shareButton">
-                                        <rect key="frame" x="40" y="5" width="40" height="30"/>
-                                        <state key="normal" title="Share"/>
-                                        <connections>
-                                            <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bc1-Ol-DVg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFw-qr-pcc" userLabel="cancelButton">
-                                        <rect key="frame" x="512" y="5" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eiY-wr-qNn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="AdF-lL-mGF"/>
-                                    <constraint firstAttribute="trailing" secondItem="IFw-qr-pcc" secondAttribute="trailing" constant="40" id="JZU-Gh-m1e"/>
-                                    <constraint firstItem="IFw-qr-pcc" firstAttribute="centerY" secondItem="gQG-iC-rNG" secondAttribute="centerY" id="hBj-OV-OPX"/>
-                                    <constraint firstItem="QZx-BF-nwU" firstAttribute="leading" secondItem="gQG-iC-rNG" secondAttribute="leading" constant="40" id="nWN-bZ-kEv"/>
-                                    <constraint firstItem="QZx-BF-nwU" firstAttribute="centerY" secondItem="gQG-iC-rNG" secondAttribute="centerY" id="scV-O8-m3n"/>
+                                    <constraint firstAttribute="height" constant="40" id="puG-HD-xWe"/>
                                 </constraints>
-                            </view>
+                                <items>
+                                    <navigationItem id="jIB-d1-3IW">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="3gT-CC-tdw">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FX6-KQ-yQq" userLabel="shareButton">
+                                                <rect key="frame" x="20" y="3" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Share"/>
+                                                <connections>
+                                                    <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h0p-3Q-fHf"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="D1c-wW-naC">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fnt-Xk-796" userLabel="cancelButton">
+                                                <rect key="frame" x="447" y="3" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qa4-VU-pc7"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4b-FE-YeH" userLabel="middleView">
                                 <rect key="frame" x="0.0" y="60" width="600" height="500"/>
                                 <subviews>
@@ -136,27 +138,19 @@
                         <constraints>
                             <constraint firstItem="VZ8-e8-TMe" firstAttribute="top" secondItem="F4b-FE-YeH" secondAttribute="bottom" id="7B0-br-OtP"/>
                             <constraint firstItem="F4b-FE-YeH" firstAttribute="bottom" secondItem="VZ8-e8-TMe" secondAttribute="top" id="7H4-jO-Ubl"/>
-                            <constraint firstItem="F4b-FE-YeH" firstAttribute="top" secondItem="gQG-iC-rNG" secondAttribute="bottom" id="ACy-2v-wx1"/>
+                            <constraint firstItem="5jE-MJ-Jas" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GF4-AP-eWg"/>
                             <constraint firstItem="F4b-FE-YeH" firstAttribute="bottom" secondItem="VZ8-e8-TMe" secondAttribute="top" id="LYj-Mw-eew"/>
+                            <constraint firstItem="5jE-MJ-Jas" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Maq-OQ-SRK"/>
                             <constraint firstAttribute="trailing" secondItem="F4b-FE-YeH" secondAttribute="trailing" id="Mo5-Rc-qVL"/>
-                            <constraint firstAttribute="trailing" secondItem="gQG-iC-rNG" secondAttribute="trailing" id="OqA-4A-juL"/>
                             <constraint firstItem="VZ8-e8-TMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QRt-ON-jxt"/>
-                            <constraint firstItem="gQG-iC-rNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sb3-ov-jpG"/>
                             <constraint firstItem="F4b-FE-YeH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UB7-Nz-RVQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VZ8-e8-TMe" secondAttribute="bottom" id="YdB-jl-ggy"/>
-                            <constraint firstItem="gQG-iC-rNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="kze-37-FF6"/>
-                            <constraint firstItem="gQG-iC-rNG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="n6U-c4-AoL"/>
+                            <constraint firstItem="F4b-FE-YeH" firstAttribute="top" secondItem="5jE-MJ-Jas" secondAttribute="bottom" id="iDd-LY-tgJ"/>
+                            <constraint firstAttribute="trailing" secondItem="5jE-MJ-Jas" secondAttribute="trailing" id="msE-xl-2sm"/>
                             <constraint firstAttribute="trailing" secondItem="VZ8-e8-TMe" secondAttribute="trailing" id="qDl-ld-cSs"/>
-                            <constraint firstItem="gQG-iC-rNG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tt0-Oi-wer"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gQG-iC-rNG" secondAttribute="trailing" constant="-20" id="uRD-aZ-R7L"/>
-                            <constraint firstItem="gQG-iC-rNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="x9t-tc-176"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Sb3-ov-jpG"/>
-                                <exclude reference="n6U-c4-AoL"/>
-                                <exclude reference="tt0-Oi-wer"/>
-                                <exclude reference="uRD-aZ-R7L"/>
                                 <exclude reference="7H4-jO-Ubl"/>
                                 <exclude reference="7B0-br-OtP"/>
                             </mask>
@@ -167,12 +161,12 @@
                         <outlet property="bottomText" destination="o23-DI-Foz" id="ADn-q9-XkB"/>
                         <outlet property="bottomView" destination="VZ8-e8-TMe" id="nZa-Yo-7Iy"/>
                         <outlet property="cameraButton" destination="Gqd-Pj-Hcf" id="lmm-cd-A7m"/>
-                        <outlet property="cancelButton" destination="IFw-qr-pcc" id="m5I-Ef-j9G"/>
+                        <outlet property="cancelButton" destination="Fnt-Xk-796" id="iYW-pC-eK5"/>
                         <outlet property="imageView" destination="xU9-as-AFy" id="8iL-mM-aDk"/>
                         <outlet property="middleView" destination="F4b-FE-YeH" id="vgH-UW-Rfb"/>
-                        <outlet property="shareButton" destination="QZx-BF-nwU" id="QvE-9R-RQN"/>
+                        <outlet property="navigationBar" destination="5jE-MJ-Jas" id="Acn-7e-nwg"/>
+                        <outlet property="shareButton" destination="FX6-KQ-yQq" id="NjV-62-Tet"/>
                         <outlet property="topText" destination="ZuS-FI-hmG" id="wFQ-ee-jyO"/>
-                        <outlet property="topView" destination="gQG-iC-rNG" id="lDQ-tT-6tD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

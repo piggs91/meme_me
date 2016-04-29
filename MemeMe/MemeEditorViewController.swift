@@ -23,8 +23,8 @@ class MemeEditorViewController: UIViewController,
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var middleView: UIView!
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var imagePicker: UIImagePickerController!
     
@@ -84,7 +84,7 @@ class MemeEditorViewController: UIViewController,
     func generateMemedImage() -> UIImage
     {
         // Hide toolbar and navbar
-        topView.hidden = true
+        navigationBar.hidden = true
         bottomView.hidden = true
         
         // Render view to an image
@@ -96,7 +96,7 @@ class MemeEditorViewController: UIViewController,
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
-        topView.hidden = false
+        navigationBar.hidden = false
         bottomView.hidden = false
         
         return memedImage
