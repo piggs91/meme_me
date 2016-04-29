@@ -22,6 +22,9 @@ class ViewController: UIViewController,
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var middleView: UIView!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     var imagePicker: UIImagePickerController!
     
@@ -49,6 +52,8 @@ class ViewController: UIViewController,
         bottomText.defaultTextAttributes = memeTextAttributes
 
         subscribeToKeyboardNotifications()
+        
+        shareButton.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,11 +85,33 @@ class ViewController: UIViewController,
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        var savedImage = UIImage() // TODO: update
-        let activityVC = UIActivityViewController(activityItems: [savedImage], applicationActivities: nil)
+        var memedImage = generateMemedImage() // TODO: update
+        let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         presentViewController(activityVC, animated: true, completion: nil)
     }
     
+    
+    func generateMemedImage() -> UIImage
+    {
+        // Hide toolbar and navbar
+        topView.hidden = true
+        bottomView.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Show toolbar and navbar
+        topView.hidden = false
+        bottomView.hidden = false
+        
+        return memedImage
+    }
+
     
     
     // MARK: ImagePickerControllerDelegate Implementations
@@ -95,6 +122,7 @@ class ViewController: UIViewController,
             imageView.image = image
         }
         dismissViewControllerAnimated(true, completion: nil)
+        shareButton.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
