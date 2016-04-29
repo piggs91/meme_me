@@ -126,7 +126,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xDE-fh-w6p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="51p-K1-845"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xDE-fh-w6p" secondAttribute="bottom" id="FuJ-uE-WHl"/>

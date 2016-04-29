@@ -27,6 +27,21 @@ class MemeEditorViewController: UIViewController,
     @IBOutlet weak var toolBar: UIToolbar!
     
     var imagePicker: UIImagePickerController!
+    var memedImage: UIImage!
+    var meme: Meme!
+    
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage
+        var memedImage: UIImage
+        init(topText_: String, bottomText_: String, originalImage_: UIImage, memedImage_: UIImage) {
+            topText = topText_
+            bottomText = bottomText_
+            originalImage = originalImage_
+            memedImage = memedImage_
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +90,13 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        let memedImage = generateMemedImage()
+        memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityVC.completionWithItemsHandler = { (activityType: String?, completed: Bool, returnedItems: [AnyObject]?, error: NSError?) in
+            if (completed) {
+                self.saveMeme()
+            }
+        }
         presentViewController(activityVC, animated: true, completion: nil)
     }
     
@@ -114,6 +134,10 @@ class MemeEditorViewController: UIViewController,
         textField.textAlignment = NSTextAlignment.Center
     }
     
+    func saveMeme() {
+        // Create the meme
+        meme = Meme(topText_: topText.text!, bottomText_: bottomText.text!, originalImage_: imageView.image!, memedImage_: memedImage)
+    }
     
     // MARK: ImagePickerControllerDelegate Implementations
     
