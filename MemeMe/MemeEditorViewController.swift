@@ -9,7 +9,7 @@
 import UIKit
 import Darwin
 
-class ViewController: UIViewController,
+class MemeEditorViewController: UIViewController,
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate,
     UITextFieldDelegate {
@@ -34,58 +34,48 @@ class ViewController: UIViewController,
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         print("image size: " + String(imageView.image?.size.width) + "," + String(imageView.image?.size.height))
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
-        topText.textAlignment = NSTextAlignment.Center
-        bottomText.textAlignment = NSTextAlignment.Center
-        topText.delegate = self
-        bottomText.delegate = self
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -4.0
-        ]
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-
-        subscribeToKeyboardNotifications()
+        setTextFieldStyle(topText)
+        setTextFieldStyle(bottomText)
         
         shareButton.enabled = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotification()
+        unsubscribeFromKeyboardNotification()
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        exit(0)
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        setTextFieldStyle(topText)
+        setTextFieldStyle(bottomText)
+        imageView.image = nil
     }
     
-    @IBAction func albumButtonPressed(sender: AnyObject) {
+    @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-
-    @IBAction func cameraButtonPressed(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        if sender as! NSObject == cameraButton {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        var memedImage = generateMemedImage() // TODO: update
+        var memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         presentViewController(activityVC, animated: true, completion: nil)
     }
@@ -112,6 +102,17 @@ class ViewController: UIViewController,
         return memedImage
     }
 
+    func setTextFieldStyle(textField: UITextField) {
+        textField.delegate = self
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -4.0
+        ]
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment.Center
+    }
     
     
     // MARK: ImagePickerControllerDelegate Implementations
@@ -157,14 +158,14 @@ class ViewController: UIViewController,
     func keyboardWillShow(notification: NSNotification) {
         print("in keyboardWillShow")
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            self.view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         print("in keyboardWillHide")
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.view.frame.origin.y = 0
         }
     }
     
