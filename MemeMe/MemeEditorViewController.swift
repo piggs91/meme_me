@@ -17,7 +17,6 @@ class MemeEditorViewController: UIViewController,
     
     @IBOutlet weak var albumButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topText: UITextField!
@@ -25,6 +24,7 @@ class MemeEditorViewController: UIViewController,
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var imagePicker: UIImagePickerController!
     var memedImage: UIImage!

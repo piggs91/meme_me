@@ -24,15 +24,10 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="jIB-d1-3IW">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="3gT-CC-tdw">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FX6-KQ-yQq" userLabel="shareButton">
-                                                <rect key="frame" x="20" y="3" width="22" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="action-icon-iso-blue-30x30"/>
-                                                <connections>
-                                                    <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h0p-3Q-fHf"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="3gT-CC-tdw" userLabel="shareButton">
+                                            <connections>
+                                                <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="Je6-2H-gvZ"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="D1c-wW-naC">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fnt-Xk-796" userLabel="cancelButton">
@@ -157,7 +152,7 @@
                         <outlet property="imageView" destination="xU9-as-AFy" id="8iL-mM-aDk"/>
                         <outlet property="middleView" destination="F4b-FE-YeH" id="vgH-UW-Rfb"/>
                         <outlet property="navigationBar" destination="5jE-MJ-Jas" id="Acn-7e-nwg"/>
-                        <outlet property="shareButton" destination="FX6-KQ-yQq" id="NjV-62-Tet"/>
+                        <outlet property="shareButton" destination="3gT-CC-tdw" id="hLE-BN-XQN"/>
                         <outlet property="toolBar" destination="xDE-fh-w6p" id="iHv-vU-lj4"/>
                         <outlet property="topText" destination="ZuS-FI-hmG" id="wFQ-ee-jyO"/>
                     </connections>
@@ -168,7 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="action-icon-iso-blue-30x30" width="22" height="30"/>
         <image name="camera-blue-30x30" width="30" height="30"/>
     </resources>
 </document>
