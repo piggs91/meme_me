@@ -29,20 +29,7 @@ class MemeEditorViewController: UIViewController,
     var imagePicker: UIImagePickerController!
     var memedImage: UIImage!
     var meme: Meme!
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-        init(topText_: String, bottomText_: String, originalImage_: UIImage, memedImage_: UIImage) {
-            topText = topText_
-            bottomText = bottomText_
-            originalImage = originalImage_
-            memedImage = memedImage_
-        }
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -60,7 +47,6 @@ class MemeEditorViewController: UIViewController,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
-
     }
 
     override func viewWillDisappear(animated: Bool) {

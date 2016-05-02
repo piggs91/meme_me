@@ -14,6 +14,7 @@
 		18CABEC61CD13B63002FEF4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CABEC41CD13B63002FEF4D /* LaunchScreen.storyboard */; };
 		18CABED11CD13B63002FEF4D /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABED01CD13B63002FEF4D /* MemeMeTests.swift */; };
 		18CABEDC1CD13B63002FEF4D /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABEDB1CD13B63002FEF4D /* MemeMeUITests.swift */; };
+		18CABEEC1CD7B978002FEF4D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABEEB1CD7B978002FEF4D /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		18CABED71CD13B63002FEF4D /* MemeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CABEDB1CD13B63002FEF4D /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		18CABEDD1CD13B63002FEF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18CABEEB1CD7B978002FEF4D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				18CABEC21CD13B63002FEF4D /* Assets.xcassets */,
 				18CABEC41CD13B63002FEF4D /* LaunchScreen.storyboard */,
 				18CABEC71CD13B63002FEF4D /* Info.plist */,
+				18CABEEB1CD7B978002FEF4D /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CABEEC1CD7B978002FEF4D /* Meme.swift in Sources */,
 				18CABEBE1CD13B63002FEF4D /* MemeEditorViewController.swift in Sources */,
 				18CABEBC1CD13B63002FEF4D /* AppDelegate.swift in Sources */,
 			);
@@ -482,6 +486,7 @@
 				18CABEE21CD13B63002FEF4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18CABEE31CD13B63002FEF4D /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				18CABEE51CD13B63002FEF4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18CABEE61CD13B63002FEF4D /* Build configuration list for PBXNativeTarget "MemeMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				18CABEE81CD13B63002FEF4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
