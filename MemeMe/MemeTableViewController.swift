@@ -26,20 +26,16 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.tableView.reloadData()
-        print("in MemeTableViewVC's View will appear") //TODO:cleanup
     }
     
     // MARK: UITableViewDataSource Protocol
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("in numberOfRows... View will appear") //TODO:cleanup
         return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("in cellforrow... View will appear") //TODO:cleanup
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("memeCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("memeTableViewCell")!
         let row = indexPath.row
         cell.imageView!.image = memes[row].memedImage
         cell.textLabel!.text = memes[row].topText + "..." + memes[row].bottomText
