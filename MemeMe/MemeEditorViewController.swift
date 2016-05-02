@@ -15,9 +15,9 @@ class MemeEditorViewController: UIViewController,
     UITextFieldDelegate {
 
     
-    @IBOutlet weak var albumButton: UIButton!
-    @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var albumButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
@@ -51,10 +51,8 @@ class MemeEditorViewController: UIViewController,
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
-        setTextFieldStyle(topText)
-        setTextFieldStyle(bottomText)
+        setTextFieldStyle(topText, defaultText: "TOP")
+        setTextFieldStyle(bottomText, defaultText: "BOTTOM")
         
         shareButton.enabled = false
     }
@@ -71,10 +69,8 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
-        setTextFieldStyle(topText)
-        setTextFieldStyle(bottomText)
+        setTextFieldStyle(topText, defaultText: "TOP")
+        setTextFieldStyle(bottomText, defaultText: "BOTTOM")
         imageView.image = nil
     }
     
@@ -122,7 +118,7 @@ class MemeEditorViewController: UIViewController,
         return memedImage
     }
 
-    func setTextFieldStyle(textField: UITextField) {
+    func setTextFieldStyle(textField: UITextField, defaultText: String) {
         textField.delegate = self
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -132,6 +128,7 @@ class MemeEditorViewController: UIViewController,
         ]
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = NSTextAlignment.Center
+        textField.text = defaultText
     }
     
     func saveMeme() {
@@ -142,7 +139,6 @@ class MemeEditorViewController: UIViewController,
     // MARK: ImagePickerControllerDelegate Implementations
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("image selected")
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
         }
@@ -151,7 +147,6 @@ class MemeEditorViewController: UIViewController,
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        print("image picker canceled")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -159,14 +154,12 @@ class MemeEditorViewController: UIViewController,
     // MARK: UITextFieldDelegate Implementations
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        print("in textFieldDidBeginEditing")
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("in textFieldShouldReturn")
         textField.resignFirstResponder()
         return true
     }
@@ -174,20 +167,17 @@ class MemeEditorViewController: UIViewController,
     // MARK: Keyboard Notification Subscription
     
     func subscribeToKeyboardNotifications() {
-        print("in subscribeToKeyboardNotifications")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        print("in keyboardWillShow")
         if bottomText.isFirstResponder() {
             self.view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        print("in keyboardWillHide")
         if bottomText.isFirstResponder() {
             self.view.frame.origin.y = 0
         }
