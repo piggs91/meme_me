@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by soheiln on 4/27/16.
@@ -34,7 +34,6 @@ class MemeEditorViewController: UIViewController,
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        print("image size: " + String(imageView.image?.size.width) + "," + String(imageView.image?.size.height))
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         
@@ -76,7 +75,14 @@ class MemeEditorViewController: UIViewController,
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityVC.completionWithItemsHandler = { (activityType: String?, completed: Bool, returnedItems: [AnyObject]?, error: NSError?) in
             if (completed) {
+                //TODO: clean-up
+                print((UIApplication.sharedApplication().delegate as! AppDelegate).memes.count)
                 self.saveMeme()
+                print((UIApplication.sharedApplication().delegate as! AppDelegate).memes.count)
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+                
             }
         }
         presentViewController(activityVC, animated: true, completion: nil)
