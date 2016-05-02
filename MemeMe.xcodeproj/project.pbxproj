@@ -15,6 +15,7 @@
 		18CABED11CD13B63002FEF4D /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABED01CD13B63002FEF4D /* MemeMeTests.swift */; };
 		18CABEDC1CD13B63002FEF4D /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABEDB1CD13B63002FEF4D /* MemeMeUITests.swift */; };
 		18CABEEC1CD7B978002FEF4D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABEEB1CD7B978002FEF4D /* Meme.swift */; };
+		18CABEEE1CD7C09B002FEF4D /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CABEED1CD7C09B002FEF4D /* MemeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		18CABEDB1CD13B63002FEF4D /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		18CABEDD1CD13B63002FEF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18CABEEB1CD7B978002FEF4D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		18CABEED1CD7C09B002FEF4D /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				18CABEBB1CD13B63002FEF4D /* AppDelegate.swift */,
 				18CABEBD1CD13B63002FEF4D /* MemeEditorViewController.swift */,
+				18CABEED1CD7C09B002FEF4D /* MemeTableViewController.swift */,
 				18CABEBF1CD13B63002FEF4D /* Main.storyboard */,
 				18CABEC21CD13B63002FEF4D /* Assets.xcassets */,
 				18CABEC41CD13B63002FEF4D /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				18CABEEC1CD7B978002FEF4D /* Meme.swift in Sources */,
 				18CABEBE1CD13B63002FEF4D /* MemeEditorViewController.swift in Sources */,
 				18CABEBC1CD13B63002FEF4D /* AppDelegate.swift in Sources */,
+				18CABEEE1CD7C09B002FEF4D /* MemeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
