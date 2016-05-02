@@ -75,14 +75,8 @@ class MemeEditorViewController: UIViewController,
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityVC.completionWithItemsHandler = { (activityType: String?, completed: Bool, returnedItems: [AnyObject]?, error: NSError?) in
             if (completed) {
-                //TODO: clean-up
-                print((UIApplication.sharedApplication().delegate as! AppDelegate).memes.count)
                 self.saveMeme()
-                print((UIApplication.sharedApplication().delegate as! AppDelegate).memes.count)
-                
                 self.dismissViewControllerAnimated(true, completion: nil)
-                
-                
             }
         }
         presentViewController(activityVC, animated: true, completion: nil)
@@ -146,6 +140,14 @@ class MemeEditorViewController: UIViewController,
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func loadMeme(memeToLoad: Meme) {
+        self.meme = memeToLoad
+        self.imageView.image = memeToLoad.originalImage
+        self.topText.text = memeToLoad.topText
+        self.bottomText.text = memeToLoad.bottomText
+//        setTextFieldStyle(topText, defaultText: memeToLoad.topText)
+//        setTextFieldStyle(bottomText, defaultText: memeToLoad.bottomText)
+    }
     
     // MARK: UITextFieldDelegate Implementations
     
