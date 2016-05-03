@@ -54,9 +54,7 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        setTextFieldStyle(topText, defaultText: "TOP")
-        setTextFieldStyle(bottomText, defaultText: "BOTTOM")
-        imageView.image = nil
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickAnImage(sender: AnyObject) {
