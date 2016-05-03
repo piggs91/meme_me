@@ -241,7 +241,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="plh-Jj-FZE">
             <objects>
-                <viewController id="qfc-ke-Fkf" userLabel="Meme Detail View Controller" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" id="qfc-ke-Fkf" userLabel="Meme Detail View Controller" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Brt-Dt-tza"/>
                         <viewControllerLayoutGuide type="bottom" id="B7d-s0-Qg0"/>

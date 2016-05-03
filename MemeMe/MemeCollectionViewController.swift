@@ -54,17 +54,18 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // Get memeEditorVC
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController")
-        let memeEditorVC = object as! MemeEditorViewController
+        // Get memeDetailVC
+        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
+        let memeDetailVC = object as! MemeDetailViewController
         
         
-        // Populate memeEditorVC with data from selected item
-        let dummyVarToLoadNibFile = memeEditorVC.view
-        memeEditorVC.loadMeme((UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.item])
+        // Populate memeDetailVC with data from selected item
+        let dummyVarToLoadNibFile = memeDetailVC.view
+        memeDetailVC.imageView.image = memes[indexPath.item].memedImage
         
-        // Present the VC using navigation
-        self.presentViewController(memeEditorVC, animated: true, completion: nil)
+        // Push the VC to navigationController
+        self.navigationController?.pushViewController(memeDetailVC, animated: true)
+        //        self.presentViewController(memeDetailVC, animated: true, completion: nil)
     }
     
 }

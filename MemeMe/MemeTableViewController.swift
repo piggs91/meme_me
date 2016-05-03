@@ -19,13 +19,13 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     // MARK: UITableViewDataSource Protocol
@@ -43,17 +43,18 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Get memeEditorVC
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController")
-        let memeEditorVC = object as! MemeEditorViewController
+        // Get memeDetailVC
+        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
+        let memeDetailVC = object as! MemeDetailViewController
         
 
-        // Populate memeEditorVC with data from selected item
-        let dummyVarToLoadNibFile = memeEditorVC.view
-        memeEditorVC.loadMeme((UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row])
+        // Populate memeDetailVC with data from selected item
+        let dummyVarToLoadNibFile = memeDetailVC.view
+        memeDetailVC.imageView.image = memes[indexPath.row].memedImage
 
-        // Present the VC using navigation
-        self.presentViewController(memeEditorVC, animated: true, completion: nil)
+        // Push the VC to navigationController
+        self.navigationController?.pushViewController(memeDetailVC, animated: true)
+//        self.presentViewController(memeDetailVC, animated: true, completion: nil)
     }
     
 }
